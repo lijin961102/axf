@@ -33,13 +33,41 @@
 
 {#尾部#}
 {% block footer %}
-    <footer>尾部
+    <footer>
+        <a href="{% url 'axf:home' %}" class="home">
+            <dl>
+                <dt><span></span></dt>
+                <dd>首页</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'axf:market' 104749 %}" class="market">
+            <dl>
+                <dt><span></span></dt>
+                <dd>闪购超市</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'axf:cart' %}" class="cart">
+            <dl>
+                <dt><span></span></dt>
+                <dd>购物车</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'axf:mine' %}" class="mine">
+            <dl>
+                <dt><span></span></dt>
+                <dd>我的</dd>
+            </dl>
+        </a>
     </footer>
 {% endblock %}
 </body>
 
 <script src="{% static 'base/js/jquery.js' %}"></script>
 <script src="{% static 'base/js/bootstrap.js' %}"></script>
+<script src="{% static 'base/js/jquery.cookie.js' %}"></script>
 <script src="{% static 'base/js/swiper.js' %}"></script>
 <script src="{% static 'base/js/base.js' %}"></script>
 {#JS#}
