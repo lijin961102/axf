@@ -46,14 +46,32 @@ def market(request,categoryid):
     # 分类信息
     foodtypes = Foodtypes.objects.all()
 
+
+    # 分类 点击 下标 >> 分类ID
+    typeIndex = int(request.COOKIES.get('typeIndex',0))
+    # 根据分类下标 获取 对应 分类ID
+    categoryid = foodtypes[typeIndex].typeid
     # 商品信息
     # goodsList = Goods.objects.all()[0:5]
-
     goodsList = Goods.objects.filter(categoryid=categoryid)
 
+    # 子类信息
+    childtupename = foodtypes.get(typeid=categoryid).childtypenames
+
+    # 将每个子类拆分出来
+    childTypelist = []
+    for item in childtupename.split("#"):
+        arr = item.split(':')
+        dir = {
+            'childname':arr[0], # 子类名称
+            'childid':arr[1]    # 子类ID
+        }
+        childTypelist.append(dir)
+
     data = {
-        'foodtypes':foodtypes,
-        'goodsList':goodsList,
+        'foodtypes':foodtypes, # 分类信息
+        'goodsList':goodsList, # 商品信息
+        'childTypelist':childTypelist, # 子类信息
     }
     return render(request,'market/market.html',context=data)
 
