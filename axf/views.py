@@ -76,11 +76,16 @@ def market(request,categoryid):
     return render(request,'market/market.html',context=data)
 
 
-def cart(request):
+def cart(request):  # 购物车
     return render(request,'cart/cart.html')
 
 
-def mine(request):
+def mine(request): # 我的
     return render(request,'mine/mine.html')
 
 
+def registe(request): # 注册
+    if request.method == 'GET':
+        return render(request,'mine/registe.html')
+    elif request.method == 'POST':
+        pass

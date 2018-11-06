@@ -8,7 +8,6 @@ $(function () {
     }else{ // 没有点击分类
         $('.type-slider .type-item:first').addClass('active')
     }
-
     // 侧边栏
     // cookie
     // 设置cookie
