@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{% static 'mine/css/registe.css' %}">
 {% endblock %}
 {% block extjs %}
-    <script src="{% static 'mine/js/registe.js' %}"></script>
+    <script src="{% static 'mine/js/registerAxf.js' %}"></script>
 {% endblock %}
 
 {% block title %}
@@ -13,19 +13,19 @@
 
 {% block content %}
     <div class="register">
-{#        <div class="back">#}
-{#            <a href="{% url 'axf:mine' %}">#}
-{#                <span class="glyphicon glyphicon-remove"></span>#}
-{#            </a>#}
-{#        </div>#}
+        <div class="back">
+            <a href="{% url 'axf:mine' %}">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </div>
 
-        <form action="{% url 'axf:registe' %}" method="post" enctype="multipart/form-data">
+        <form action="/registe/" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {#            账号#}
             <div class="form-group has-feedback" id="account">
                 <div class="input-group">
                     <div class="input-group-addon">账号</div>
-                    <input type="text" class="form-control" placeholder="数字、字母" name="account" required="required">
+                    <input type="text" class="form-control" placeholder="数字、字母" name="accou nt" required="required">
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <i></i>
@@ -36,8 +36,7 @@
             <div class="form-group" id="password">
                 <div class="input-group">
                     <div class="input-group-addon">密码</div>
-                    <input type="password" class="form-control" placeholder="6~12位纯数字" name="password"
-                           required="required">
+                    <input type="password" class="form-control" placeholder="6~12位纯数字" name="password" required="required">
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <i></i>
@@ -81,7 +80,7 @@
                 </div>
             </div>
 
-            {#            头像#}
+                        头像
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon">头像</div>

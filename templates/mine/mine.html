@@ -15,34 +15,32 @@
     <div class="mine">
         <div class="user-wrapper">
             <div class="user-img">
-                <img src="{% static 'mine/uploads/cihos.jpg' %}" alt="">
+                <img src="{{ img }}" alt="">
             </div>
             <div class="user-content">
                 <p>
-                    <a href="#">
+                    <a href="{% url 'axf:login' %}">
                         <span class="glyphicon glyphicon-user"></span>
-                        未登录
+                        {{ name }}
                     </a>
                 </p>
                 <p>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-stats"></span>
-                        暂无等级（无登录）
-                    </a>
-                    <a href="{% url 'axf:registe' %}" class="register">注册</a>
+                    <span class="glyphicon glyphicon-certificate "></span>
+                    VIP: {{ rank | default:'暂无等级' }}
                 </p>
+                <a href="{% url 'axf:registe' %}" class="register">注册</a>
             </div>
         </div>
 
         <div class="collect">
-            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-pushpin "></span>
             <i>收藏</i>
         </div>
 
         <div class="other">
             <section class="my">
                 <span>我的订单</span>
-                <a href="#">查看所有订单 <b class="glyphicon glyphicon-menu-right"></b></a>
+                <a href="#"> 查看订单 <b class="glyphicon glyphicon-chevron-right"></b> </a>
             </section>
 
             <section>
@@ -50,35 +48,33 @@
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-log-in"></dt>
-                                <dd>待付款</dd>
+                                <dt> <b class="glyphicon glyphicon-shopping-cart"></b> </dt>
+                                <dd> 待付款 </dd>
                             </dl>
                         </a>
                     </li>
-
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-floppy-save"></dt>
-                                <dd>待收货</dd>
+                                <dt> <b class="glyphicon glyphicon-thumbs-up"></b> </dt>
+                                <dd> 待收货 </dd>
                             </dl>
                         </a>
                     </li>
-
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-edit"></dt>
-                                <dd>待评论</dd>
+                                <dt> <b class="glyphicon glyphicon-bell
+glyphicon"></b> </dt>
+                                <dd> 待评价 </dd>
                             </dl>
                         </a>
                     </li>
-
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-usd"></dt>
-                                <dd>退款</dd>
+                                <dt> <b class=" glyphicon glyphicon-bullhorn"></b> </dt>
+                                <dd> 退款 </dd>
                             </dl>
                         </a>
                     </li>
@@ -90,44 +86,43 @@
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-compressed"></dt>
-                                <dd>优惠</dd>
+                                <dt> <b class="glyphicon glyphicon-compressed"></b> </dt>
+                                <dd> 优惠券 </dd>
                             </dl>
                         </a>
                     </li>
-
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-earphone"></dt>
-                                <dd>收货地址</dd>
+                                <dt> <b class="glyphicon glyphicon-earphone"></b> </dt>
+                                <dd> 收货地址 </dd>
                             </dl>
                         </a>
                     </li>
-
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-phone-alt"></dt>
-                                <dd>客户反馈</dd>
+                                <dt> <b class="glyphicon glyphicon-phone-alt"></b> </dt>
+                                <dd> 客户反馈 </dd>
                             </dl>
                         </a>
                     </li>
-
                     <li>
                         <a href="#">
                             <dl>
-                                <dt class="glyphicon glyphicon-grain"></dt>
-                                <dd>关于我们</dd>
+                                <dt> <b class="glyphicon glyphicon-stats"></b> </dt>
+                                <dd> 关于我们 </dd>
                             </dl>
                         </a>
                     </li>
                 </ul>
             </section>
 
+            {% if isLogin %}
             <section class="quit">
-                <a href="#">退出</a>
+                <a href="/logout/">退出</a>
             </section>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
